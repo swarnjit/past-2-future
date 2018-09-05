@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:21:45 -0500] "POST /fileUploadServlet HTTP/1.1" 200 7771 http-bio-8080-exec-1 88
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:21:45 -0500] "GET /cssStyle/style.css HTTP/1.1" 304 - http-bio-8080-exec-3 8
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:21:45 -0500] "GET /img/fileupload.png HTTP/1.1" 304 - http-bio-8080-exec-2 8
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:21:45 -0500] "GET /img/party.jpg HTTP/1.1" 304 - http-bio-8080-exec-5 4
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:21:46 -0500] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-6 4
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:22:22 -0500] "POST /fileUploadServlet HTTP/1.1" 200 7771 http-bio-8080-exec-7 32
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:23:07 -0500] "POST /fileUploadServlet HTTP/1.1" 200 7771 http-bio-8080-exec-8 20
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:23:13 -0500] "GET /LandingPageServlet HTTP/1.1" 200 3499 http-bio-8080-exec-10 36
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:23:15 -0500] "GET /login.do HTTP/1.1" 200 4148 http-bio-8080-exec-10 36
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:23:17 -0500] "POST /login.do HTTP/1.1" 200 7772 http-bio-8080-exec-10 543
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:23:29 -0500] "POST /fileUploadServlet HTTP/1.1" 200 7772 http-bio-8080-exec-10 16
+0:0:0:0:0:0:0:1 - - [02/Sep/2018:10:25:48 -0500] "POST /fileUploadServlet HTTP/1.1" 200 7887 http-bio-8080-exec-7 426
