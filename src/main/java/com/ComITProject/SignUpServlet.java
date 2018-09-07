@@ -32,6 +32,19 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
   String lastname=request.getParameter("lastname");
   String emailID=request.getParameter("emailID");
   String password=request.getParameter("password");
+  boolean IsUserInSystem = false;
+  CheckExistingUser obj_CheckUser = new CheckExistingUser();
+  try {
+		IsUserInSystem = obj_CheckUser.checkUser(username);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  if(IsUserInSystem) {
+	  request.getSession().setAttribute("message", "Username already registred");
+		request.getRequestDispatcher("/WEB-INF/mainPages/SignUpHtml.jsp").forward(request, response);;
+  }
+  else {
   try {
 	SignUpUser obj_SignUpUser= new SignUpUser();
 			obj_SignUpUser.SignUp(username, firstname, lastname, emailID, password);
@@ -41,8 +54,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 }
 
  
-   RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/mainPages/timeline.jsp");
+   RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/mainPages/LoginHtml.jsp");
    rd.forward(request, response);
-  }
+  }}
  }
 

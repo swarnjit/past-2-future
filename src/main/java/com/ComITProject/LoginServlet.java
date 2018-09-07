@@ -2,6 +2,7 @@ package com.ComITProject;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +13,6 @@ import com.ComITProject.LoginValidation;
 @WebServlet(urlPatterns="/login.do")
 public class LoginServlet extends HttpServlet {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public LoginServlet() {
         super();
@@ -32,18 +30,18 @@ public class LoginServlet extends HttpServlet {
 		boolean result = false;
 		try {
 			result = ob_login.logincheck(username, password);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (ClassNotFoundException e)
+		{
 			e.printStackTrace();
 		}
 		
 		if (result) {
 			
 			request.getSession().setAttribute("username", username);
-			request.getRequestDispatcher("/TimelineViewerServlet").forward(request, response);;
+			request.getRequestDispatcher("/TimelineViewerServlet").forward(request, response);
 		}
 		else {
-			request.setAttribute("eM", "Invalid Credentials");
+			request.setAttribute("message", "Invalid Credentials");
 			request.getRequestDispatcher("/WEB-INF/mainPages/LoginHtml.jsp").forward(request, response);
 		}	
 	}

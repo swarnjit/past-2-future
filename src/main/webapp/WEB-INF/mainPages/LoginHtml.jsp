@@ -16,6 +16,11 @@
         <label for="text">Username:</label>
         <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
       </div>
+      <span><c:if test="${message != null }">
+		<div class="alert alert-danger mt-3" role="alert">
+ 				${message}
+		</div>
+	</c:if></span><br>
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
@@ -25,7 +30,7 @@
         <input class="form-check-input" type="checkbox" name="remember"> Remember me
         </label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="button1">Submit</button>
          </form>
     </div>
    
@@ -33,6 +38,7 @@
          
     </div>
   </div>
+  
   <%@ include file="../included/footer.jsp" %>
 </div>
 

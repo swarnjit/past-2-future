@@ -1,6 +1,7 @@
 package com.ComITProject;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ public class TimelineViewerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private TimelineViewer timelineViewer = new TimelineViewer();
+	private ProfileViewer profileViewer = new ProfileViewer();
     public TimelineViewerServlet() {
         super();
         
@@ -23,6 +25,7 @@ public class TimelineViewerServlet extends HttpServlet {
 		String username = (String) request.getSession(false).getAttribute("username");
 		try {
 			request.setAttribute("timelineInfo", timelineViewer.getTimelineByUsername(username));
+			request.setAttribute("profileinfo", profileViewer.getProfileByUsername(username));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -36,6 +39,7 @@ public class TimelineViewerServlet extends HttpServlet {
 		String username = (String) request.getSession(false).getAttribute("username");
 		try {
 			request.setAttribute("timelineInfo", timelineViewer.getTimelineByUsername(username));
+			request.setAttribute("profileinfo", profileViewer.getProfileByUsername(username));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

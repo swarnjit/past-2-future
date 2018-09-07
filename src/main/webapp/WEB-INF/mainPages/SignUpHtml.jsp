@@ -13,10 +13,15 @@
 </div>
 <div class="col-sm-3">
 <h1>Sign-Up Please</h1>
-<form action="/SignUpServlet" method="POST">
+<form action="/SignUpServlet" onsubmit="return validateForm()" method="POST" name="SignUp">
          <div class="form-group">
             <label for="text">Username:</label>
             <input type="text" class="form-control" id="username" placeholder="Enter Unique Username" name="username">
+		            <span><c:if test="${message != null }">
+					<div class="alert alert-danger mt-3" role="alert">
+		 				${message}
+					</div>
+					</c:if></span><br>
           </div>
           <div class="form-group">
             <label for="text">Firstname:</label>
@@ -40,7 +45,7 @@
             </div>
             <div>
             </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="button1">Submit</button>
           </form>
 </div>
 <div class="col-sm-4">
