@@ -23,6 +23,18 @@
   width: 100%;
   font-size: 18px;
 }
+.btnsearch{
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #97a1b2;
+  text-align: center;
+  cursor: pointer;
+  width: 30px;
+  font-size: 18px;
+}
 
 a {
   text-decoration: none;

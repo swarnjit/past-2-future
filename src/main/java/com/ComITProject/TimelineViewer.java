@@ -7,16 +7,17 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class TimelineViewer {
-	public List<Timeline> getTimelineByUsername( String username) throws ClassNotFoundException
+	public List<Timeline> getTimelineByUsername( int userID, int limit) throws ClassNotFoundException
 	{
 		List<Timeline> timeline = new ArrayList<Timeline>();
 		SqlConnection sqlconnection = new SqlConnection();
 		Connection connect = sqlconnection.get_Connection();
-        String sql = "SELECT timelineDesc, imgSrc, dateAdded FROM p2flife.timeline WHERE userName=?";
+        String sql = "SELECT timelineDesc, imgSrc, dateAdded FROM p2flife.timeline WHERE userID=? LIMIT ?" ;
 
         try {
             PreparedStatement ps = connect.prepareStatement(sql);
-            ps.setString(1, username);
+            ps.setInt(1, userID);
+            ps.setInt(2, limit);
 
             ResultSet resultSet = ps.executeQuery();
 

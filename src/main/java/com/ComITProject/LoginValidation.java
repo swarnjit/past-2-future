@@ -31,6 +31,26 @@ public class LoginValidation {
 		}
 		return validity;
 	}
+	public int getUserID (String username) throws ClassNotFoundException {
+		SqlConnection sqlconnection = new SqlConnection();
+		Connection connect = sqlconnection.get_Connection();
+		PreparedStatement ps = null;
+		int userID= 0;
+		try {
+		String queryString = "SELECT userID FROM p2flife.reguser where username=?";
+	    ps = connect.prepareStatement(queryString);
+	    ps.setString(1,username);
+	    ResultSet results = ps.executeQuery();
+	   if(results.next()) {
+        	userID = results.getInt("userID");
+	   }
+		}catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return userID;
+		
+	}
 
 
 }

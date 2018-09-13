@@ -10,20 +10,23 @@ public class ProfileViewer {
 	public ProfileViewer() {
 		super();
 	}
-	public List<Profile> getProfileByUsername(String username) throws ClassNotFoundException {
+	public List<Profile> getProfileByUserID(int userID1) throws ClassNotFoundException {
 		List<Profile> profile = new ArrayList<Profile>();
 		SqlConnection sqlconnection = new SqlConnection();
 		Connection connect = sqlconnection.get_Connection();
-        String sql = "SELECT firstname, emailID  FROM p2flife.reguser WHERE username=?";
+        String sql = "SELECT userID, username, firstname, emailID, profilepicPath  FROM p2flife.reguser WHERE userID=?";
         try {
         PreparedStatement ps = connect.prepareStatement(sql);
-        ps.setString(1, username);
+        ps.setInt(1, userID1);
 
         ResultSet resultSet = ps.executeQuery();
         while(resultSet.next())  {
+        	int userID = resultSet.getInt("userID");
+        	String username = resultSet.getString("username");
         	String firstname = resultSet.getString("firstname");
         	String emailID = resultSet.getString("emailID");
-        	profile.add(new Profile(username, emailID, firstname));
+        	String profilepicPath = resultSet.getString("profilepicPath");
+        	profile.add(new Profile(userID, username, emailID, firstname, profilepicPath));
         }
         }catch(SQLException e) {
             e.printStackTrace();

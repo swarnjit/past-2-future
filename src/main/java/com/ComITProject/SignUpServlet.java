@@ -32,6 +32,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
   String lastname=request.getParameter("lastname");
   String emailID=request.getParameter("emailID");
   String password=request.getParameter("password");
+  String profilepicPath = request.getParameter("ProfilePic");
   boolean IsUserInSystem = false;
   CheckExistingUser obj_CheckUser = new CheckExistingUser();
   try {
@@ -41,13 +42,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		e.printStackTrace();
 	}
   if(IsUserInSystem) {
-	  request.getSession().setAttribute("message", "Username already registred");
+	  request.getSession().setAttribute("message1", "Username already registred");
 		request.getRequestDispatcher("/WEB-INF/mainPages/SignUpHtml.jsp").forward(request, response);;
   }
   else {
   try {
 	SignUpUser obj_SignUpUser= new SignUpUser();
-			obj_SignUpUser.SignUp(username, firstname, lastname, emailID, password);
+			obj_SignUpUser.SignUp(username, firstname, lastname, emailID, password, profilepicPath);
 } catch (ClassNotFoundException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();

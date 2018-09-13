@@ -2,13 +2,10 @@
 {
     box-sizing: border-box;
 }
-
 body {
-    background-color: #474e5d;
+    background-color: #edf2f9;
     font-family: Helvetica, sans-serif;
 }
-
-/* The actual timeline (the vertical ruler) */
 .timeline {
     position: relative;
     max-width: 1200px;
@@ -17,8 +14,6 @@ body {
 .bg-main{
     background-color: #97a1b2;
 }
-
-/* The actual timeline (the vertical ruler) */
 .timeline::after {
     content: '';
     position: absolute;
@@ -30,15 +25,12 @@ body {
     margin-left: -3px;
 }
 
-/* Container around content */
 .container {
     padding: 10px 40px;
     position: relative;
     background-color: inherit;
     width: 50%;
 }
-
-/* The circles on the timeline */
 .container::after {
     content: '';
     position: absolute;
@@ -52,45 +44,31 @@ body {
     z-index: 1;
 }
 
-/* Place the container to the left */
 .left {
     left: 0;
 }
-
-/* Place the container to the right */
 .right {
     left: 0%;
 }
 
-
-/* Fix the circle for containers on the right side */
 .right::after {
     left: -16px;
 }
 
-/* The actual content */
 .content {
     padding: 0px 0px;
     background-color: #c6c0bf;
     position: relative;
     border-radius: 6px;
 }
-
-
-  
-  /* Full-width containers */
   .container {
     width: 100%;
     
   }
-
-  /* Make sure all circles are at the same spot */
+  
   .left::after, .right::after {
     left: 15px;
   }
-  
-  /* Make all right containers behave like the left ones */
-  .right {
     left: 0%;
   }
   .top-buffer { margin-top:20px; }
@@ -115,6 +93,16 @@ textarea:focus {
 
 .image-upload img
 {
-    width: 80px;
     cursor: pointer;
+}
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
 }

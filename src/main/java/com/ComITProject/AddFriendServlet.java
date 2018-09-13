@@ -28,13 +28,24 @@ public class AddFriendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String reciever = request.getParameter("reciever");
-		String sender = (String) request.getSession(false).getAttribute("username");
-		String actionID = sender;
+		int userID2 = Integer.parseInt(request.getParameter("reciever"));
+		int userID1 = (int) request.getSession().getAttribute("userID1");
+		int actionID = userID1;
+		
+		
 		AddFriend addFriend = new AddFriend();
 		
 			try {
-				addFriend.SendRequest(sender, reciever, 0, actionID);
+				if(userID1<userID2) {
+					int user_id1= userID1;
+					int user_id2 = userID2;
+					addFriend.SendRequest(user_id1, user_id2, 0, actionID);
+				}else {
+					int user_id2 = userID1;
+					int user_id1 = userID2;
+					addFriend.SendRequest(user_id1, user_id2, 0, actionID);
+				}
+				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -44,17 +55,13 @@ public class AddFriendServlet extends HttpServlet {
 			}
 			request.setAttribute("StatusOfRequest", "Friend Request Sent");
 			
-			request.setAttribute("ReqUsername", reciever);
+			request.setAttribute("ReqUsername", userID2);
 		
 		
 		request.getRequestDispatcher("/ProfileServlet").forward(request, response);	
 		
 		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/ProfileServlet").forward(request, response);	
 	}

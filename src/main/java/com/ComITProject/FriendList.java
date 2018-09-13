@@ -4,53 +4,44 @@ import java.io.Serializable;
 
 public class FriendList implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String userID1;
-	private String userID2;
-	private int status;
-	private String actionID;
+	private int user_id;
+	private String firstname;
+	private String profilepicPath;
+	
 	public FriendList() {
 		super();
 	}
-	public FriendList (String userID1, String userID2, int status, String actionID) {
-		this.userID1 = userID1;
-		this.userID2 = userID2;
-		this.status = status;
-		this.actionID = actionID;
+	public FriendList (int user_id, String firstname, String profilepicPath) {
+		this.user_id = user_id;
+		this.firstname = firstname;
+		this.profilepicPath = profilepicPath;
 	}
 
-	public String getUserid1()
+	public int getUser_id()
 	{
-		return userID1;
+		return user_id;
+	}
+	public String getFirstname()
+	{
+		return firstname;
 	}
 	
-	public String getUserID2()
+	public String getProfilepicPath()
 	{
-		return userID2;
-	}
-	public int getStatus()
-	{
-		return status;
-	}
-	public String getActionID()
-	{
-		return actionID;
+		return profilepicPath;
 		}
-	public void setUserID1(String userID1)
+	public void setUser_id(int user_id)
 	{
-		this.userID1 = userID1;
+		this.user_id = user_id;
 	}
 	
-	public void setUserID2(String userID2)
+	public void setFirstname(String firstname)
 	{
-		this.userID2 = userID2;
+		this.firstname = firstname;
 	}
-	public void setStatus(int status)
+	public void setProfilepicPath(String profilepicPath)
 	{
-		this.status = status;
-	}
-	public void setActionID(String actionID)
-	{
-		this.actionID = actionID;
+		this.profilepicPath = profilepicPath;
 	}
 	
 }

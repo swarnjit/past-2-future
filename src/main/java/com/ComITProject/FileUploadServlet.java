@@ -62,7 +62,6 @@ public class FileUploadServlet extends HttpServlet {
         				String addTimeNoDots = addTimeNoSpace.replaceAll("[^a-zA-Z0-9]+","");
         				name = addTimeNoDots + basename + "." +extension; 
                         item.write( new File(UPLOAD_DIR + File.separator + name));
-                        request.getSession().setAttribute("uploadedFile", name);
                         String ImagePath = "/timelineimage/" + name;
                         request.getSession().setAttribute("imagePath", ImagePath);
                         
